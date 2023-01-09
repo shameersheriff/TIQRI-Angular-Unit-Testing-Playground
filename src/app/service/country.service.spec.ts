@@ -17,9 +17,16 @@ describe('CountryService', () => {
     service = TestBed.inject(CountryService);
   });
 
-  it('should return mock data', () => {
-    service.getData().subscribe(data => {
+  it('should return mock country list data', () => {
+    service.getData().subscribe((data: any) => {
       expect(data).toEqual([1, 2, 3]);
+    });
+  });
+
+  it('should return mock country data', () => {
+    let country = {name:'Sri Lanka', region:'South Asia'};
+    service.getCountry().subscribe((data: any) => {
+      expect(data).toEqual(country);
     });
   });
 });
